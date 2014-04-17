@@ -8,7 +8,7 @@ NAME = pass-sshaskpass
 all:
 	@echo "This is a shell script, so there is nothing to do. Try \"make install\" instead."
 
-install-pass:
+install:
 	@mkdir -p "$(DESTDIR)$(BINDIR)" "$(DESTDIR)$(PRODIR)"
 	@install -Dm 0755 -v src/pass-sshaskpass.sh "$(DESTDIR)$(BINDIR)/$(NAME)"
 	@install -Dm 0755 -v src/profile.sh "$(DESTDIR)$(PRODIR)/$(NAME).sh"
