@@ -1,13 +1,14 @@
 # Maintainer: José Luis Lafuente <jl@lafuente.me>
+# Contributor: Frederik Schwan <frederik dot schwan at linux dot com>
 
 pkgname=pass-sshaskpass
 pkgver=0.0.1
-pkgrel=1
+pkgrel=2
 pkgdesc='Get ssh passphrase from pass'
 url='https://github.com/jlesquembre/pass-sshaskpass'
 license=('GPLv2')
 arch=('any')
-depends=('pass')
+depends=('pass' 'zenity')
 provides=('x11-ssh-askpass')
 conflicts=('x11-ssh-askpass')
 #source=("http://git.zx2c4.com/password-store/snapshot/password-store-${pkgver}.tar.xz")
