@@ -1,18 +1,17 @@
 #!/bin/bash
 
 # Copyright (C) 2014 José Luis Lafuente <jl@lafuente.me>. All Rights Reserved.
+# Contributor  Frederik Schwan <frederik dot schwan at linux dot com>
 # This file is licensed under the GPLv2+. Please see LICENSE for more information.
 
-umask 077
-
-key=$(echo "$@" | sed  -r "s/Enter passphrase for key '.*ssh\/(.*)':/\1/g")
+key=$(echo "$1" | sed -r "s/.*\/(.*)(':|:\s*$)/\1/g")
 
 mypass=$(pass ssh/$key)
 
 if [[ $? != 0 ]] ; then
-    echo 'Passphrase not found in password store.'
-    read -p "$@" new_pass
-
+	zenity --error --text="Passphrase not found in password store. Please store it with 'pass insert ssh/$key'"
 else
     echo "$mypass"
 fi
+
+exit
