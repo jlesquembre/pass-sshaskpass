@@ -9,7 +9,7 @@ key=$(echo "$1" | sed -r "s/.*\/([^':]+)'?:\s*$/\1/g")
 mypass=$(pass ssh/$key)
 
 if [[ $? != 0 ]] ; then
-	zenity --error --text="Passphrase not found in password store. Please store it with 'pass insert ssh/$key'"
+    zenity --error --text="Passphrase not found in password store. Please store it with 'pass insert ssh/$key'"
 else
     echo "$mypass"
 fi
